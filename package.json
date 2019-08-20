@@ -1,0 +1,64 @@
+{
+  "name": "bobby",
+  "description": "bobby cli",
+  "version": "0.0.0",
+  "bin": {
+    "bobby": "./bin/run"
+  },
+  "bugs": "https://github.com/bobby-cli/bobby/issues",
+  "dependencies": {
+    "@google-cloud/storage": "^3.1.0",
+    "@oclif/command": "^1.5.18",
+    "@oclif/config": "^1",
+    "@oclif/plugin-help": "^2",
+    "@types/inquirer": "^6.5.0",
+    "@types/superagent": "^4.1.3",
+    "color-it": "^1.2.11",
+    "emojic": "^1.1.15",
+    "inquirer": "^6.5.1",
+    "superagent": "^5.1.0",
+    "tslib": "^1"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1",
+    "@types/node": "^10",
+    "globby": "^10",
+    "ts-node": "^8",
+    "typescript": "^3.3"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/lib",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json"
+  ],
+  "homepage": "https://github.com/bobby-cli/bobby",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "oclif": {
+    "commands": "./lib/commands",
+    "bin": "bobby",
+    "plugins": [
+      "@oclif/plugin-help"
+    ],
+    "topics": {
+      "service": {
+        "description": "manage heroku config variables"
+      }
+    }
+  },
+  "repository": "bobby-cli/bobby",
+  "scripts": {
+    "postpack": "rm -f oclif.manifest.json",
+    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "test": "echo NO TESTS",
+    "version": "oclif-dev readme && git add README.md"
+  },
+  "types": "lib/index.d.ts"
+}
